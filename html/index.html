@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+<h1>WebSocket</h1>
+<script>
+
+
+
+    var websocket  = new WebSocket("ws://localhost:8080/echo");
+    websocket.onopen = function () {
+        session = "abcd"
+        websocket.send(session);
+        console.log(websocket.readyState)
+    }
+    websocket.onmessage = function (event) {
+        console.log(event.data);
+        websocket.close()
+    }
+    websocket.onclose = function() {
+        alert("连接已关闭...");
+    };
+
+
+
+</script>
+</body>
+</html>
